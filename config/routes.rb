@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :order, only:[:new, :index, :create, :show] do
+  resources :orders, only:[:new, :index, :create, :show] do
     collection do
       get   :confirm
       patch :complete

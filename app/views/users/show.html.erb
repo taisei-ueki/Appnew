@@ -1,0 +1,18 @@
+<div class="user_page">
+  <h3>マイページ</h3>
+  <div class="user_item">
+    <h4>注文履歴：<%= link_to "一覧を見る", orders_path(current_user) %></h4>
+  </div>
+  <div class="user_profile">
+    <table>
+      <tr>
+        <th>氏名</th>
+        <td><%= @user.name %></td>
+      </tr>
+      <tr>
+        <th>メールアドレス</th>
+        <td><%= @user.email %></td>
+      </tr>
+    </table>
+  </div>
+</div>

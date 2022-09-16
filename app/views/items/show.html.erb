@@ -1,0 +1,17 @@
+<div class="item_box">
+  <%= image_tag @item.get_image, size: "300×300" %>
+  <%= @item.name %>
+  <%= @item.introduction %>
+  <%= @item.price %>
+</div>
+<div class="cart">
+  <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
+    <% if user_signed_in? %>
+      <%= f.hidden_field :item_id, :value => @item.id %>
+      <%= f.select :amount, *[1..10] %>
+      <%= f.submit "カートに入れる" %>
+    <% else %>
+      <%= link_to "会員登録が必要", new_user_registration_path %>
+    <% end %>
+  <% end %>
+</div>
