@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <h2>商品詳細</h2>
+    </div>
+    <div class="col-md-8">
+      <table class="table">
+        <tr>
+          <% if @item.image.attached? %>
+            <%= image_tag @item.image, size: "250×250" %>
+          <% else %>
+            <%= image_tag 'no_image', size: "250×250" %>
+          <% end %>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-6 offset-1">
+      <table class="table">
+        <tr>
+          <th>商品名</th>
+          <td><%= @item.name %></td>
+        </tr>
+        <tr>
+          <th>商品説明</th>
+          <td><%= @item.introduction %></td>
+        </tr>
+        <tr>
+          <th>ジャンル</th>
+          <td><%= @item.genre.name %></td>
+        </tr>
+        <tr>
+          <th>価格</th>
+          <td>￥<%= @item.price %></td>
+        </tr>
+        <tr>
+          <td><%= link_to "編集する", edit_admin_item_path(@item.id), class: "btn btn-success" %></td>
+          <td><%= link_to "一覧に戻る", admin_items_path, class: "btn btn-primary" %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
