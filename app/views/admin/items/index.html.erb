@@ -9,6 +9,7 @@
           <th>商品名</th>
           <th>価格</th>
           <th>ジャンル</th>
+          <th></th>
         </tr>
         <% @items.each do |item| %>
         <tr>
@@ -16,6 +17,7 @@
           <td><%= item.name %></td>
           <td><%= item.price %></td>
           <td><%= item.genre.name %></td>
+          <td><%= link_to "詳細", admin_item_path(item), class: "btn btn-primary" %></td>
         </tr>
         <% end %>
       </table>

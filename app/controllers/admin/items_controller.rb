@@ -2,7 +2,7 @@ class Admin::ItemsController < ApplicationController
   before_action :authenticate_admin!
   
   def index
-    @items = Item.all.page(params[:page]).per(10)
+    @items = Item.all
   end
   
   def new
@@ -13,7 +13,7 @@ class Admin::ItemsController < ApplicationController
     @item = Item.new(item_params)
     @genres = Genre.all
     if @item.save
-      redirect_to admin_item_path(@item)
+      redirect_to admin_items_path
       flash[:notice] = '新しい商品を登録しました'
     else
       render "new"
@@ -41,7 +41,7 @@ class Admin::ItemsController < ApplicationController
   private
   
   def item_params
-    params.require(:item).permit(:name, :introductuon, :genre_id, :price)
+    params.require(:item).permit(:name, :introduction, :genre_id, :price, :image)
   end
   
 end
