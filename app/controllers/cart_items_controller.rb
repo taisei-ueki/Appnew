@@ -32,7 +32,7 @@ class CartItemsController < ApplicationController
     else
       @new_cart_item.save
     end
-    redirect_to public_cart_items_path
+    redirect_to cart_items_path
   end
   
   private
